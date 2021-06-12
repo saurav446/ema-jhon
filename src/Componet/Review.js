@@ -1,13 +1,22 @@
 import React, { useEffect, useState } from 'react';
-import {getDatabaseCart, removeFromDatabaseCart} from '../utilities/databaseManager'
+import {getDatabaseCart, removeFromDatabaseCart,processOrder} from '../utilities/databaseManager'
 import fakeData from '../fakeData'
 import ReviewItem from './ReviewItem';
 import Cart from './Cart';
+import { 
+    Link
+  } from "react-router-dom";
+
 
 
 const Review = () => {
 
     const [cart,setCart] = useState([]);
+
+    const processOrders = () =>{
+        setCart([])
+        processOrder()
+    }
     const removeProduct = (productKey) =>{
         const newCart = cart.filter((pd) => pd.key !== productKey)
             setCart(newCart) 
@@ -41,7 +50,13 @@ const Review = () => {
             }
             </div>
             <div className="Cart-area"> 
-            <Cart cart={cart}></Cart>
+            <Cart cart={cart}>
+            <Link to="/order" >
+              <button  onClick={processOrders} className="main-button">
+                    process to order
+                </button>
+                </Link>
+            </Cart>
             </div>
             </div>
         </div>

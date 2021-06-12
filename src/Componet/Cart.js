@@ -1,7 +1,4 @@
-import React from 'react';
-import { 
-    Link
-  } from "react-router-dom";
+import React from 'react'; 
 
 
 const Cart = (props) => {
@@ -35,9 +32,9 @@ const Cart = (props) => {
                 <p>Tex + VAT: ${tex}</p>
                 <p>Shipping Cost: ${Shipping}</p>
                 <p>Order Total: ${allTotal} </p>
-                <button  className="main-button">
-                    <Link to="/review" >review order</Link>
-                </button>
+                {
+                    props.children
+                }
            </div>
         </div>
     );

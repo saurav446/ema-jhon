@@ -4,6 +4,11 @@ import Cart from "./Cart";
 import Product from "./Product";
 import {addToDatabaseCart,getDatabaseCart} from '../utilities/databaseManager';
 
+import { 
+    Link
+  } from "react-router-dom";
+
+
 
 const Shop = () => {
     const allProduct = fakeData.slice(0,5);
@@ -57,6 +62,11 @@ const Shop = () => {
                 <div className="Cart-area">
                 <Cart 
           cart={cart} >
+              <Link to="/review" >
+              <button  className="main-button">
+                    review order
+                </button>
+                </Link>
           </Cart>
 
 

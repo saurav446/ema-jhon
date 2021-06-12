@@ -9,6 +9,7 @@ import {
   Switch,
   Route
 } from "react-router-dom";
+import Oder from './Componet/Oder';
 
 
 
@@ -27,6 +28,7 @@ function App() {
         <Route exact path="/"  component={Shop} />
          
         <Route  path="/review"  component={Review} />
+        <Route  path="/order"  component={Oder} />
         
         
         {/* <Route  path="*"  component={Error} /> */}
