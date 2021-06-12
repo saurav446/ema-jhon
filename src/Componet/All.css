@@ -1,0 +1,83 @@
+
+/* header arear */
+.header-area .logo-area img{
+    height: 65px; 
+}
+
+.header-area .nav-bar a{
+    text-decoration: none;
+    margin-left: 20px;
+    font-size: 18px;
+    color: white;
+}
+.header-area .nav-bar {
+    background-color: black;
+    padding: 5px;
+}
+
+
+/* Shop area */
+
+.Shop-area{
+   display: flex;
+}
+
+
+
+
+
+
+
+
+/* product-area */
+.product-area img{
+   margin-left: 20px;
+   margin-right: 15px;
+}
+
+.product-area {
+    display: flex;
+}
+
+.product-details p {
+    text-align: left;
+    font-size: 15px;
+    line-height: 1rem;
+}
+.product-details{
+    text-align: left;
+}
+.main-button {
+    background-color: #daa520;
+    width: 150px;
+    height: 30px;
+    border: 1px solid #a9a9a9;
+    border-radius: 5px;
+}
+
+/* cart-area */
+
+.cart-area{
+    min-width: 200px;
+    text-align: left;
+    margin-left: 10rem;
+}
+
+
+.review{
+    text-align: left;
+    margin-left: 10rem;
+}
+
+
+.reviewItem-area h4{
+   color: blue;
+   font-size: 15px;
+}
+
+
+
+
+.review-page{
+    display: flex;
+}
