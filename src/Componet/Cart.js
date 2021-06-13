@@ -7,7 +7,8 @@ const Cart = (props) => {
     let total = 0;
     for(let i = 0; i < cart.length; i++){
       let product = cart[i];
-      total = total + product.price * product.quantity;
+     total = total + product.price * product.quantity;
+    (total).toFixed(2);
     }
 
     let Shipping = 0;
@@ -22,13 +23,14 @@ const Cart = (props) => {
     }
    const tex = (total / 10).toFixed(2);
     const allTotal = (total + Shipping + Number(tex)).toFixed(2);
+    const totals = (total).toFixed(2)
 
     return (
         <div className="cart">
            <div className="cart-area">
                 <h4>Order Summary</h4>
                 <p>Items ordered: {cart.length}</p>
-                <p>Total: ${total}</p>
+                <p>Total: ${totals}</p>
                 <p>Tex + VAT: ${tex}</p>
                 <p>Shipping Cost: ${Shipping}</p>
                 <p>Order Total: ${allTotal} </p>

@@ -6,12 +6,14 @@ import Cart from './Cart';
 import { 
     Link
   } from "react-router-dom";
+import Auth from '../Admin/useAuth';
 
 
 
 const Review = () => {
 
     const [cart,setCart] = useState([]);
+     const auth =  Auth();
 
     const processOrders = () =>{
         setCart([])
@@ -36,25 +38,28 @@ const Review = () => {
    
     return (
         <div>
-            <h4 style={{textAlign:'left'}}>review all Item  {cart.length}</h4>
-            
             <div className="review-page">
             <div className="review">
             {
                 cart.map((pd) => 
-                    <ReviewItem
+                    <ReviewItem 
                     removeProduct={removeProduct}
                     key={pd.key}
                     product={pd} ></ReviewItem>
                 )
             }
+            {
+                !cart.length && <h1>Your cart is empty. <a href="/">keep shoping</a></h1>
+            }
             </div>
-            <div className="Cart-area"> 
+            <div  className="Cart-area"> 
             <Cart cart={cart}>
             <Link to="/order" >
-              <button  onClick={processOrders} className="main-button">
-                    process to order
-                </button>
+                 {
+                   auth.user  ?
+                  <button onClick={processOrders}   className="main-button">   proceed to checkout  </button> :
+                  <button   className="main-button">   login to order  </button>
+                  }
                 </Link>
             </Cart>
             </div>

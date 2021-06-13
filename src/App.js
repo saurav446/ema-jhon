@@ -1,7 +1,6 @@
 import './App.css';
 import Header from './Componet/Header'
 import  Shop  from "./Componet/Shop";
-import  Review  from "./Componet/Review";
 import './Componet/All.css';
 import Error from './Componet/Error'
 import {
@@ -10,31 +9,38 @@ import {
   Route
 } from "react-router-dom";
 import Oder from './Componet/Oder';
-
-
-
+import Login from './Admin/Login'; 
+import {AuthProvider,PrivateRoute} from './Admin/useAuth'
+import Review from './Componet/Review'
 
 function App() {
   return (
     <div className="App">
-    
-    <Header></Header> 
+     <AuthProvider>
+   
+     <Header></Header> 
     <Router>
     <Switch>
-      <Router>
-        <Route> 
+        <Route exact path="/">
+         <Shop ></Shop>
         </Route>
-        
-        <Route exact path="/"  component={Shop} />
-         
-        <Route  path="/review"  component={Review} />
-        <Route  path="/order"  component={Oder} />
-        
-        
-        {/* <Route  path="*"  component={Error} /> */}
-      </Router>
+        <Route path="/login">
+          <Login   ></Login>
+        </Route>
+        <Route  path="/review">
+          <Review ></Review>
+        </Route>
+        <PrivateRoute>
+        <Route path="/order">
+          <Oder  ></Oder>
+        </Route>
+        </PrivateRoute> 
+        <Route path="*" >
+          <Error></Error>
+        </Route>
     </Switch>
     </Router>
+     </AuthProvider>
     </div>
   );
 }

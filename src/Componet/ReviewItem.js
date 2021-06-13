@@ -1,7 +1,7 @@
 import React from 'react';
 
 const ReviewItem = (props) => {
-    const {name,quantity,key} = props.product;
+    const {name,quantity,key} = props.product; 
     return (
         <div>
             <div className="reviewItem-area"> 

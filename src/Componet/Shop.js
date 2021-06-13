@@ -61,7 +61,7 @@ const Shop = () => {
                 </div>
                 <div className="Cart-area">
                 <Cart 
-          cart={cart} >
+          cart={cart} > 
               <Link to="/review" >
               <button  className="main-button">
                     review order
@@ -69,7 +69,7 @@ const Shop = () => {
                 </Link>
           </Cart>
 
-
+ 
                 </div>
             </div>
         </div>
