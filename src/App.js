@@ -1,46 +1,55 @@
 import './App.css';
-import Header from './Componet/Header'
-import  Shop  from "./Componet/Shop";
-import './Componet/All.css';
-import Error from './Componet/Error'
+import React from "react";
+import Header from './components/Header/Header';
+import Shop from './components/Shop/Shop';
+import Review from './components/Review/Review';
+import NotFound from './components/NotFound/NotFound';
+import Inventory from './components/Inventory/Inventory';
 import {
   BrowserRouter as Router,
   Switch,
   Route
 } from "react-router-dom";
-import Oder from './Componet/Oder';
-import Login from './Admin/Login'; 
-import {AuthProvider,PrivateRoute} from './Admin/useAuth'
-import Review from './Componet/Review'
+import ProductDetails from './components/Product/ProductDetails/ProductDetails';
+import Login from './components/Login/Login';
+import { AuthContextProvider, PrivateRoute } from './components/Login/UserAuth';
+import ShipMent from './components/ShipMent/ShipMent';
+
 
 function App() {
   return (
-    <div className="App">
-     <AuthProvider>
-   
-     <Header></Header> 
-    <Router>
-    <Switch>
-        <Route exact path="/">
-         <Shop ></Shop>
-        </Route>
-        <Route path="/login">
-          <Login  ></Login>
-        </Route>
-        <Route  path="/review">
-          <Review ></Review>
-        </Route>
-        <PrivateRoute>
-        <Route path="/order">
-          <Oder></Oder>
-        </Route>
-        </PrivateRoute> 
-        <Route path="*" >
-          <Error></Error>
-        </Route>
-    </Switch>
+    <div>
+      <AuthContextProvider>
+      <Header></Header>
+      <Router>
+        <Switch> 
+          <Route exact path="/">
+          <Shop></Shop>
+          </Route>
+          <Route path="/shop">
+          <Shop></Shop>
+          </Route>
+          <Route path="/review">
+            <Review></Review>
+          </Route>
+          <Route path="/inventory">
+            <Inventory></Inventory>
+          </Route>
+          <Route path="/product/:Pkey">
+            <ProductDetails></ProductDetails>
+          </Route> 
+          <Route path="/Login">
+            <Login></Login>
+          </Route>
+          <PrivateRoute path="/shipment">
+            <ShipMent></ShipMent>
+          </PrivateRoute>
+          <Route path="*">
+            <NotFound></NotFound>
+          </Route>
+        </Switch>
     </Router>
-     </AuthProvider>
+    </AuthContextProvider>
     </div>
   );
 }
