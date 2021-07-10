@@ -9,11 +9,11 @@ const Product = (props) => {
             <div className="product-area mt-3">
                  <div className="product-img" >
                      <img src={img} alt="" />
-                 </div> 
+                 </div>  
                  <div className="product-details" >
                      <p style={{color:'blue'}}>{name}</p>
                      <p>By{seller}</p>
-                     <p>${price}</p>     
+                     <p>${price}</p>     cartHendlerz
                      <p>only {stock} left in stock - order soon</p>
                      <button onClick={() => props.cartHendler(props.product)} className="main-button">  add to cart</button>
                  </div>

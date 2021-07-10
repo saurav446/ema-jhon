@@ -25,14 +25,14 @@ function App() {
          <Shop ></Shop>
         </Route>
         <Route path="/login">
-          <Login   ></Login>
+          <Login  ></Login>
         </Route>
         <Route  path="/review">
           <Review ></Review>
         </Route>
         <PrivateRoute>
         <Route path="/order">
-          <Oder  ></Oder>
+          <Oder></Oder>
         </Route>
         </PrivateRoute> 
         <Route path="*" >

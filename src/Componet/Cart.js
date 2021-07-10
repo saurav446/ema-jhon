@@ -37,7 +37,7 @@ const Cart = (props) => {
                 {
                     props.children
                 }
-           </div>
+           </div> 
         </div>
     );
 };
